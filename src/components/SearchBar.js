@@ -1,11 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import styled from "styled-components";
+
+const BarWrapper = styled.View`
+  background-color: #e8edf1;
+  border-radius: 6px;
+  padding: 8px 16px;
+`;
 
 const SearchBar = () => {
   return (
-    <View>
-      <Text>Search Screen</Text>
-    </View>
+    <BarWrapper>
+      <Text>Search Bar</Text>
+    </BarWrapper>
   );
 };
 
