@@ -11,22 +11,27 @@ const ScreenWrapper = styled.View`
 const SearchScreen = () => {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
+  const [errorMessage, setErrormMessage] = useState("");
 
   const searchApi = async () => {
-    const response = await yelp.get("/search", {
-      params: {
-        limit: 50,
-        term,
-        location: "san jose"
-      }
-    });
-    setResults(response.data.businesses);
+    try {
+      const response = await yelp.get("/search", {
+        params: {
+          limit: 50,
+          term,
+          location: "san jose"
+        }
+      });
+      setResults(response.data.businesses);
+    } catch (err) {
+      setErrormMessage("Something went wrong");
+    }
   };
 
   return (
     <ScreenWrapper>
       <SearchBar term={term} onTermChange={setTerm} onTermSubmit={searchApi} />
-      <Text>Search Screen</Text>
+      {errorMessage ? <Text>{errorMessage}</Text> : null}
       <Text>We have found {results.length} results</Text>
     </ScreenWrapper>
   );
