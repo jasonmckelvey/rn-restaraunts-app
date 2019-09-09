@@ -7,13 +7,14 @@ const ScreenWrapper = styled.View`
   margin: 0px 8px 0px 0px;
 `;
 
-const ListTitle = styled.Text`
-  font-size: 18px;
-  font-weight: bold;
+const ListCaption = styled.Text`
+  font-size: 12px;
+  color: gray;
 `;
 const ListSubTitle = styled.Text`
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0px 0px 2px 0px;
 `;
 
 const ResultImage = styled.Image`
@@ -28,6 +29,9 @@ const ResultsDetail = ({ result }) => {
     <ScreenWrapper>
       <ResultImage source={{ uri: result.image_url }} />
       <ListSubTitle>{result.name}</ListSubTitle>
+      <ListCaption>
+        {result.rating} Stars, {result.review_count} Reviews
+      </ListCaption>
     </ScreenWrapper>
   );
 };
