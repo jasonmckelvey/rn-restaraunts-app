@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { FlatList } from "react-native";
 import styled from "styled-components";
 
 const ScreenWrapper = styled.View`
@@ -18,7 +19,14 @@ const ResultsList = ({ title, results }) => {
   return (
     <ScreenWrapper>
       <ListTitle>{title}</ListTitle>
-      <ListSubTitle>Result: {results.length}</ListSubTitle>
+      <FlatList
+        horizontal
+        data={results}
+        keyExtractor={result => result.id}
+        renderItem={({ item }) => {
+          return <ListSubTitle>{item.name}</ListSubTitle>;
+        }}
+      />
     </ScreenWrapper>
   );
 };
