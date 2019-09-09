@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+
+// swap this out for react-native-vector-icons
 import { Feather } from "@expo/vector-icons";
 
 const BarWrapper = styled.View`
