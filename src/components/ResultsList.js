@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList } from "react-native";
 import styled from "styled-components";
+import ResultsDetail from "./ResultsDetail";
 
 const ScreenWrapper = styled.View`
   padding: 18px 0px;
@@ -24,7 +25,7 @@ const ResultsList = ({ title, results }) => {
         data={results}
         keyExtractor={result => result.id}
         renderItem={({ item }) => {
-          return <ListSubTitle>{item.name}</ListSubTitle>;
+          return <ResultsDetail result={item} />;
         }}
       />
     </ScreenWrapper>
