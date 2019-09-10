@@ -7,7 +7,9 @@ import ResultsList from "../components/ResultsList";
 
 const ListWrapper = styled.ScrollView``;
 
-const ShowResultsScreen = () => {
+const ShowResultsScreen = ({ navigation }) => {
+  const id = navigation.getParam("id");
+  console.log(id);
   return <Text>Results</Text>;
 };
 
