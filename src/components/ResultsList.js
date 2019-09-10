@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList } from "react-native";
 import styled from "styled-components";
+import { withNavigation } from "react-navigation";
 import ResultsDetail from "./ResultsDetail";
 
 const ScreenWrapper = styled.View`
@@ -38,4 +39,4 @@ const ResultsList = ({ title, results, navigation }) => {
   );
 };
 
-export default ResultsList;
+export default withNavigation(ResultsList);
