@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text } from "react-native";
 import styled from "styled-components";
-import SearchBar from "../components/SearchBar";
-import useResults from "../hooks/useResults";
-import ResultsList from "../components/ResultsList";
+import yelp from "../api/yelp";
 
-const ListWrapper = styled.ScrollView``;
+const Wrapper = styled.View``;
 
 const ShowResultsScreen = ({ navigation }) => {
+  const [result, setResult] = useState(null);
   const id = navigation.getParam("id");
-  console.log(id);
-  return <Text>Results</Text>;
+
+  console.log(result);
+
+  const getResult = async id => {
+    const response = await yelp.get(`/${id}`);
+    setResult(response.data);
+  };
+  useEffect(() => {
+    getResult(id);
+  }, []);
+
+  return (
+    <Wrapper>
+      <Text>Results</Text>
+    </Wrapper>
+  );
 };
 
 export default ShowResultsScreen;
