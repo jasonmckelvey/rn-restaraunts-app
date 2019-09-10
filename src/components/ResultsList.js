@@ -4,12 +4,13 @@ import styled from "styled-components";
 import ResultsDetail from "./ResultsDetail";
 
 const ScreenWrapper = styled.View`
-  padding: 18px 0px;
+  padding: 0px 0px 24px 0px;
 `;
 
 const ListTitle = styled.Text`
   font-size: 18px;
   font-weight: bold;
+  margin: 0px 0px 0px 16px;
 `;
 const ListSubTitle = styled.Text`
   font-size: 14px;
@@ -21,7 +22,9 @@ const ResultsList = ({ title, results }) => {
     <ScreenWrapper>
       <ListTitle>{title}</ListTitle>
       <FlatList
+        style={{ paddingLeft: 16 }}
         horizontal
+        showsHorizontalScrollIndicator={false}
         data={results}
         keyExtractor={result => result.id}
         renderItem={({ item }) => {

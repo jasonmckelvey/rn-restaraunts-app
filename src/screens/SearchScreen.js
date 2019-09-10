@@ -5,8 +5,9 @@ import SearchBar from "../components/SearchBar";
 import useResults from "../hooks/useResults";
 import ResultsList from "../components/ResultsList";
 
-const ScreenWrapper = styled.View`
-  padding: 16px;
+const ListWrapper = styled.ScrollView``;
+const Spacer = styled.View`
+  height: 16px;
 `;
 
 const SearchScreen = () => {
@@ -21,18 +22,27 @@ const SearchScreen = () => {
   };
 
   return (
-    <ScreenWrapper>
+    <>
       <SearchBar
         term={term}
         onTermChange={setTerm}
         onTermSubmit={() => searchApi(term)}
       />
-      {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text>We have found {results.length} results</Text>
-      <ResultsList results={filterResultsByPrice("$")} title="Cost Effective" />
-      <ResultsList results={filterResultsByPrice("$$")} title="Bit Pricier" />
-      <ResultsList results={filterResultsByPrice("$$$")} title="Big Spender" />
-    </ScreenWrapper>
+      <ListWrapper>
+        {errorMessage ? <Text>{errorMessage}</Text> : null}
+        {/* <ResultsText>We have found {results.length} results</ResultsText> */}
+        <Spacer />
+        <ResultsList
+          results={filterResultsByPrice("$")}
+          title="Cost Effective"
+        />
+        <ResultsList results={filterResultsByPrice("$$")} title="Bit Pricier" />
+        <ResultsList
+          results={filterResultsByPrice("$$$")}
+          title="Big Spender"
+        />
+      </ListWrapper>
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ import { Image } from "react-native";
 import styled from "styled-components";
 
 const ScreenWrapper = styled.View`
-  padding: 16px 0px;
+  padding: 8px 0px;
   margin: 0px 8px 0px 0px;
 `;
 
@@ -21,7 +21,7 @@ const ResultImage = styled.Image`
   height: 150px;
   width: 250px;
   border-radius: 4px;
-  margin: 0px 0px 8px 0px;
+  margin: 0px 0px 4px 0px;
 `;
 
 const ResultsDetail = ({ result }) => {

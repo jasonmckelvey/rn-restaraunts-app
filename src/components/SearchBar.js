@@ -6,9 +6,10 @@ import { Feather } from "@expo/vector-icons";
 
 const BarWrapper = styled.View`
   background-color: #e8edf1;
-  border-radius: 4px;
+  border-radius: 24px;
   flex-direction: row;
-  height: 44px;
+  height: 40px;
+  margin: 16px;
 `;
 
 const Input = styled.TextInput`
