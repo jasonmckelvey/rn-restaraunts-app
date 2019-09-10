@@ -12,12 +12,9 @@ const ListTitle = styled.Text`
   font-weight: bold;
   margin: 0px 0px 0px 16px;
 `;
-const ListSubTitle = styled.Text`
-  font-size: 14px;
-  font-weight: 600;
-`;
+const TouchableWrapper = styled.TouchableOpacity``;
 
-const ResultsList = ({ title, results }) => {
+const ResultsList = ({ title, results, navigation }) => {
   return (
     <ScreenWrapper>
       <ListTitle>{title}</ListTitle>
@@ -28,7 +25,13 @@ const ResultsList = ({ title, results }) => {
         data={results}
         keyExtractor={result => result.id}
         renderItem={({ item }) => {
-          return <ResultsDetail result={item} />;
+          return (
+            <TouchableWrapper
+              onPress={() => navigation.navigate("ResultsShow")}
+            >
+              <ResultsDetail result={item} />
+            </TouchableWrapper>
+          );
         }}
       />
     </ScreenWrapper>
